@@ -1,8 +1,11 @@
 import mongoose from "mongoose";
 import Item from  '../models/Item';
+import config  from '../../etc/config.json'
 
 export const setUpConnection=()=>{
-  mongoose.connect('mongodb://localhost/tableSort',{useMongoClient:true});
+  mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`,
+    {useMongoClient:true}
+  );
 }
 
 export const listItems=()=> Item.find();

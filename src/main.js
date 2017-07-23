@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import * as db from './utils/DataBaseUtils';
+import { serverPort } from '../etc/config.json'
 
 const app=express();
 
@@ -39,5 +40,4 @@ catch(e){
 }
 })
 
-
-app.listen(1010,()=>{global.console.log("===>SERVER IS UP ON localhost:1010")})
+app.listen(serverPort,()=>{global.console.log(`===>SERVER IS UP ON localhost:${serverPort}`)})
