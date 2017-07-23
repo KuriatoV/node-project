@@ -1,0 +1,60 @@
+{
+  "name": "node-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Kuriato Valentyn",
+  "license": "MIT",
+  "scripts": {
+    "start": "rimraf ./dist && babel -d ./dist ./src -s && node dist/main.js",
+    "dev": "node dev.js",
+    "lint:js": "eslint ./src",
+    "lint-staged":"lint-staged"
+  },
+  "devDependencies": {
+    "babel-register": "^6.24.1",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-plugin-import": "^2.7.0",
+    "lint-staged": "^4.0.2",
+    "pre-commit": "^1.2.2"
+  },
+  "lint-staged":{
+    "*.js":"eslint"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "airbnb-base",
+      "prettier"
+    ],
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "linebreak-style": [
+        "error",
+        "windows"
+      ]
+    }
+  },
+  "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-preset-env": "^1.6.0",
+    "lodash": "^4.17.4",
+    "rimraf": "^2.6.1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  }
+}
